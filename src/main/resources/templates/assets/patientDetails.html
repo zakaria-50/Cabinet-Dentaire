@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+<div layout:fragment="content2">
+    <br>
+    <div style="display: flex; align-items: center;">
+        <i class="fa-solid fa-hospital-user fa-lg" style="color: #1828ff; margin-left: 15%"> Patients >
+            <!--<i class="fa-solid fa-bed-pulse fa-lg" style="color: #1828ff;"></i> Details Patient </i>-->
+            <i class="fa-solid fa-id-card fa-lg" style="color: #1828ff;"></i> Details Patient > <span th:text="${patient.prenom}"></span> <span th:text="${patient.nom}"></span></i>
+
+    </div>
+</div>
+
+<div layout:fragment="content">
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Add Person</title>
+        <style>
+            form {
+                width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
+            input[type="text"], input[type="date"], select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            select {
+                height: 40px;
+            }
+            .btn-success {
+                display: inline-block;
+                padding: 12px 20px;
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff;
+                background-color: #28a745;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .button-save:hover {
+                background-color: #218838;
+            }
+
+            .button-exit {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff;
+                background-color: #dc3545;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .button-exit:hover {
+                background-color: #c82333;
+            }
+
+        </style>
+    </head>
+    <body>
+    <br>
+    <form  method="put">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="patient_id" th:value="${patient.id}" readonly placeholder="Enter ID">
+
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" th:value="${patient.prenom}" name="prenom" readonly placeholder="Enter First Name">
+
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" th:value="${patient.nom}" name="nom" readonly placeholder="Enter Last Name">
+
+        <!--<label for="image">Image:</label>
+        <input type="file" id="image" th:value="${patient.image}" readonly name="image">-->
+        <label for="image" id="image">Image:</label>
+        <!--<input type="file" id="image" name="image">-->
+        <div th:if="${patient.image}">
+            <img th:src="@{'/images/' + ${patient.image}}" alt="Patient Image" width="200" class="rounded-circle" style="border-radius: 50%;width: 100px;height: 100px;border-radius: 50%;overflow: hidden;">
+        </div>
+
+
+        <!-- <label for="gender">Gender:</label>
+         <select id="gender" name="gender" type="number">
+             <option value="male" type="int">0</option>
+             <option value="female" type="int">1</option>
+         </select>-->
+        <!--<label for="gender">Sexe:</label>
+        <select id="gender" name="gender" type="patient.gender">
+            <option value="male">0</option>
+            <option value="female">1</option>
+        </select>-->
+        <label for="gender">Sexe:</label>
+        <select id="gender" th:value="${patient.gender}" readonly name="gender">
+            <option value="HOMME">Male</option>
+            <option value="FEMME">Female</option>
+        </select>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" th:value="${patient.birthday}" readonly name="birthday">
+
+        <label for="phone-number">Phone Number:</label>
+        <input type="text" id="phone-number" name="tel" th:value="${patient.tel}" readonly placeholder="Enter Phone Number">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" th:value="${patient.address}" readonly placeholder="Enter Address">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" th:value="${patient.city}" readonly placeholder="Enter City">
+
+        <label for="date">Date:</label>
+        <input type="datetime-local" id="date" name="date_creation" readonly th:value="${patient.dateCreation}">
+        
+        <br><br>
+        <!--<button type="submit" disabled class="btn btn-success">Save</button>-->
+        <a href="/patients" class="button-exit">Exit</a>
+
+
+
+    </form>
+    </body>
+    </html>
+
+
+</div>
+</body>
+</html>

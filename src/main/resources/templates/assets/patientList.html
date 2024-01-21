@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+
+
+      layout:decorate="_layout">
+
+
+
+<head>
+    <title>Medecin Dashboard</title>
+</head>
+
+<body>
+<div layout:fragment="content2" >
+    <!--<br>-->
+    <br>
+   <!-- <div style="display: flex; align-items: center;">
+  &lt;!&ndash;  <i class="fa-sharp fa-solid fa-house-chimney" style="color: #639cfd; margin-left: 15%;"> Patients ></i>
+
+    <a class="btn btn-primary" href="/patientAdd" style=" background-color: #e1dfd8;
+      margin-left: 90% ;
+      color: #3679ec;
+      border: none;
+      padding: 5px 5px;
+      cursor: pointer;">&lt;!&ndash;<i class="fa-sharp fa-solid fa-plus" style="color: #000000;"></i>&ndash;&gt;
+        <i class="fa-solid fa-user-plus fa-xs" style="color: #3679ec;"></i> New Patient</a>&ndash;&gt;
+    </div>-->
+    <div style="display: flex; align-items: center;">
+        <!--<i class="fa-sharp fa-solid fa-house-chimney" style="color: #1828ff; margin-left: 15%;">Patients ></i>-->
+        <!--<i class="fa-solid fa-hospital-user" style="color: #0058f0; margin-left: 15%"> Patients</i>-->
+        <i class="fa-solid fa-hospital-user fa-lg" style="color: #1828ff; margin-left: 15%"> Patients ></i>
+        <a class="btn btn-primary" href="/patientAdd" style="background-color: #e1dfd8; margin-left: 61%; color: #1828ff; border: none; padding: 5px 5px; cursor: pointer;font-weight: bold">
+            <i class="fa-solid fa-user-plus fa-xs" style="color: #1828ff;"></i> New Patient
+        </a>
+
+    </div>
+</div>
+</div>
+
+<div layout:fragment="content" >
+
+
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 70%;
+                padding: 8px;
+
+            }
+            th, td {
+                text-align: left;
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+           /* .button {
+                !*background-color: #4CAF50;*!
+                border: none;
+                color: white;
+                padding: 8px 16px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            .button.detail{
+                background-color: #42fd4c;
+            }
+
+            .button.update {
+                background-color: #008CBA;
+            }
+            .button.delete {
+                background-color: #f81304;
+            }*/
+        </style>
+   <!-- <br>
+    <div class="section-panel" style="border: 1px solid #ccc;
+      padding: 10px; margin-right: 1%">
+        <button style=" background-color: #33cc33;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;"><i class="fa-sharp fa-solid fa-plus" style="color: #ffffff;"></i> New Patient</button>
+    </div>-->
+    <br>
+    <h1 style="/*margin-right:90% ;*/ margin-left:0%"> Patients List </h1>
+    <hr style="margin-right:87% ; margin-left:0%" >
+    <br>
+
+    <table style="margin-left:15% ; position: center;">
+        <tbody>
+        <tr>
+            <th style="width: 15%">ID</th>
+            <th style="width: 15%">First Name</th>
+            <th style="width: 15%">Last Name</th>
+            <th style="width: 15%">Gender</th>
+            <th style="width: 15%">Image</th>
+            <th style="width: 15%">Date Creation</th>
+            <th style="width: 15%">Birthday</th>
+            <th style="width: 15%">Address</th>
+            <th style="width: 15%">City</th>
+            <th style="width: 15%">Phone Number</th>
+            <th style="width: 20% ">Actions</th>
+        </tr>
+        <tr th:each="patient: ${patients}">
+            <td th:text="${patient.id}"></td>
+            <td th:text="${patient.prenom}"></td>
+            <td th:text="${patient.nom}"></td>
+            <td th:text="${patient.gender}"></td>
+            <!--<td th:text="${patient.image}"></td>-->
+            <td>
+                <img th:src="@{'/images/' + ${patient.image}}" alt="Patient Image"
+                     style="border-radius: 50%;width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    overflow: hidden;"/>
+            </td>
+
+
+            <td> <span th:text="${patient.dateCreation}"> </span></td>
+            <!--<td type="datetime-local" th:text="${#temporals.format(patient.dateCreation,'dd/MM/yyyy HH:mm:ss')}"></td>-->
+            <!--<td th:text="${patient.dateCreation}"></td>-->
+            <td th:text="${patient.birthday}"></td>
+            <td th:text="${patient.address}"></td>
+            <td th:text="${patient.city}"></td>
+            <td th:text="${patient.tel}"></td>
+            <td class="button" style="width: 20% ">
+                <a href="#" class="update"
+                   th:href="@{'/patientEdit/'+${patient.id}}"
+                   style="color: #0dcaf0"><i class="fa-sharp fa-regular fa-pen-to-square"></i></a>
+                <a href="#" class="detail"
+                   th:href="@{'/patientDetails/'+${patient.id}}"
+                   style="color: #5ac146"><i class="fa-sharp fa-solid fa-circle-info"></i></a>
+                <a href="#" class="delete"
+                   onclick="return confirm('Are you sure ?')"
+                   th:href="@{'/patients/delete/'+${patient.id}}" style="color: red"><i class="fa-sharp fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+    <br><br>
+
+</div>
+
+
+
+
+</body>
+
+</html>

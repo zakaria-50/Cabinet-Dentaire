@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+
+<head>
+  <script th:src="@{https://kit.fontawesome.com/cb2fad3158.js}" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Medecin Dashboard</title>
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+
+
+    }
+
+
+    .header {
+      background-color: #40ed7a;
+      color: #566464;
+      padding: 10px;
+
+    }
+    .header a{
+      align-items: flex-end;
+    }
+
+    .navbar {
+      background-color: #e1dfd8;
+      color: #000;
+      /* padding: 10px; */
+      float: left;
+      width: 15%;
+      /*height: 1000%;*/
+      height: 100%;
+      position: page;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar li {
+      margin-bottom: 10px;
+    }
+
+
+    .navbar a {
+      display: block;
+      padding: 10px;
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar h1 a:hover{
+      background-color: #e1dfd8;
+    }
+
+    .navbar a:hover {
+      background-color: #40ed7a;
+    }
+
+    .content {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      float: right;
+      width: 80%;
+    }
+
+    /*.footer {
+      background-color: #009933;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      clear: both;
+    }*/
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin: 0 0 10px;
+    }
+
+    .table {
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .table th, .table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .table th {
+      background-color: #009933;
+      color: #fff;
+    }
+
+    .btn {
+      background-color: #009933;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #33cc33;
+    }
+
+    .btn:active {
+      background-color: #006600;
+    }
+
+    .btn-primary {
+      background-color: #009933;
+      border: none;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background-color: #ccc;
+      border: none;
+      color: #333;
+    }
+    .main-content{
+      margin-left:15% ;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar" style="position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;">
+  <div class="header2" style="position:page">
+    <div class="container">
+      <h1><a href="/home">Cabinet DENTAIRE</a></h1>
+      <hr>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#">Calendar</a></li>
+    <li><a href="patients">Patient List</a></li>
+    <li><a href="#">Secretary</a></li>
+    <li><a href="#">Payement information</a></li>
+    <li><a href="#">Settings</a></li>
+  </ul>
+</div>
+<div>
+  <div class="header" >
+    <div class="container">
+
+      <h1 style="margin-left:15% ">WELCOME MEDECIN</h1>
+      <hr style="margin-left:15% ">
+      <div layout:fragment="content2" >
+      <!--<br>
+
+      <button style=" background-color: #e1dfd8;
+      margin-left: 90% ;
+      color: #000000;
+      border: none;
+      padding: 10px 10px;
+      cursor: pointer;"><i class="fa-sharp fa-solid fa-plus" style="color: #000000;"></i> New Patient</button>
+
+      </div>-->
+    </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<section id="main-content" class="main-content" >
+
+  <div layout:fragment="content" >
+
+    <!--<p> content here </p>-->
+
+  </div>
+
+</section>
+
+
+</body>
+<br>
+<br>
+<br>
+<footer style="/*position: relative;*/
+  /*position: unset;
+  left: 0;
+  bottom: 0;
+  !*width: 100%;*!
+  !*background-color: #33cc33;*!
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  height: 50px;*/
+			background-color: #ccc;
+			color: #333;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: fixed;
+			bottom: 0;
+			width: 100%;">
+  <p style="margin-left: 20%">All Rights Reserved by Hospital Product Owner <a style="color: #e83e8c"> Haitex</a>. Designed and Developed by <a style="color: #e83e8c">Baydidox</a>.</p>
+</footer>
+</html>
